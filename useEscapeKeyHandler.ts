@@ -1,10 +1,10 @@
 import { KeyboardEvent, useEffect } from "react";
-
-export const useEscapeKeyHandler = (handleFn: () => void) => {
+//not a hook paste it in your componet
+export const useEscapeKeyHandler = () => {
   useEffect(() => {
-    const handler = (e: Event) => {
-      if (e instanceof KeyboardEvent && e.key === "Escape") {
-        handleFn();
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        //do what action that you wanna do when escape is clicked
       }
     };
 
@@ -13,5 +13,5 @@ export const useEscapeKeyHandler = (handleFn: () => void) => {
     return () => {
       document.removeEventListener("keydown", handler);
     };
-  }, [handleFn]);
+  }, []);
 };
